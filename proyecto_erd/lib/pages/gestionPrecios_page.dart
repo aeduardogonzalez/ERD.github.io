@@ -17,15 +17,18 @@ class _GestionPreciosPage extends State<GestionPreciosPage>{
       appBar: AppBar(
         title: Text('Gestion de Precios'),
         backgroundColor: const Color.fromARGB(255, 9, 32, 234),
+        foregroundColor: Colors.white
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: Container(
+        color: Color(0xFFDCE9FD),
+        padding: const EdgeInsets.all(50.0),
         child: Column(
           children: [
+            SizedBox(height: 50.0),
             Text(
               'Por favor ingrese el código del producto para cambiar su precio'
               ),
-            SizedBox(height: 16.0),
+            SizedBox(height: 40.0),
             TextField(
               controller: _codigoController,
               decoration: InputDecoration(
@@ -49,7 +52,7 @@ class _GestionPreciosPage extends State<GestionPreciosPage>{
                 border: OutlineInputBorder(), 
               ),
             ),
-            SizedBox(height: 16.0),
+            SizedBox(height: 50.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -57,12 +60,30 @@ class _GestionPreciosPage extends State<GestionPreciosPage>{
                   onPressed: () {
                   },
                   child: Text('Guardar'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color.fromARGB(173, 9, 32, 234),
+                
+                    padding: EdgeInsets.symmetric(horizontal: 35, vertical: 20),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    foregroundColor: Colors.white
+                  ),
                 ),
                 SizedBox(width: 16.0),
                 ElevatedButton(
                   onPressed: () {
                   },
                   child: Text('Cancelar'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color.fromARGB(12, 13, 9, 234),
+                
+                    padding: EdgeInsets.symmetric(horizontal: 35, vertical: 20),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    foregroundColor: Colors.black
+                  ),
                 ),
               ],
             ),
