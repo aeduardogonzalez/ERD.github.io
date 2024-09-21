@@ -44,21 +44,30 @@ class _QuestionPage extends State<QuestionPage> {
                     margin: EdgeInsets.symmetric(vertical: 10.0),
                     elevation: 0, // Sin sombra
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10), // Borde redondeado
+                      borderRadius: BorderRadius.circular(10), // Borde redondeado suave
                       side: BorderSide(color: Colors.transparent), // Sin borde visible
                     ),
-                    child: ExpansionTile(
-                      title: Text(question.question),
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(question.answer),
+                    child: Theme(
+                      data: Theme.of(context).copyWith(
+                        dividerColor: Colors.transparent, // Elimina la línea divisoria
+                      ),
+                      child: ExpansionTile(
+                        title: Text(
+                          question.question,
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                      ],
+                        tilePadding: EdgeInsets.symmetric(horizontal: 16.0), // Padding para ajustar márgenes
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(8.0),
+                            color: Colors.transparent, // Color de fondo igual que el contenedor
+                            child: Text(question.answer),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
-
               ),
             ),
           ],
