@@ -219,7 +219,7 @@ void updateDaysForMonth(int monthIndex) {
   // Función para obtener el nombre del día
   String getDayOfWeek(int day) {
     List<String> weekdays = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
-    DateTime date = DateTime(2023, selectedMonthIndex + 1, day); // Año 2023 como ejemplo
+    DateTime date = DateTime(2024, selectedMonthIndex + 1, day); // Año 2023 como ejemplo
     return weekdays[date.weekday % 7];
   }
 }
