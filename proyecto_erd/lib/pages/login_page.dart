@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyecto_erd/Controllers/user_controller.dart';
-import 'package:proyecto_erd/pages/principal_page.dart';
+import 'package:proyecto_erd/pages/dashboard_page.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => PrincipalPage(username: username),
+          builder: (context) => DashboardPage(username: username),
         ),
       );
     } else {
