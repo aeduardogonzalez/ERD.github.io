@@ -62,7 +62,6 @@ class DashboardPage extends StatelessWidget {
               ),
             ),
           ],
-          
         ),
       ),
     );
