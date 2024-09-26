@@ -93,6 +93,7 @@ class _CalendarViewState extends State<CalendarView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFDCE9FD),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -136,14 +137,14 @@ class _CalendarViewState extends State<CalendarView> {
                           padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                           margin: EdgeInsets.symmetric(horizontal: 4),
                           decoration: BoxDecoration(
-                            color: selectedMonthIndex == index ? Colors.blue : Colors.grey[200],
+                            color: selectedMonthIndex == index ? Colors.blue : const Color.fromARGB(255, 255, 255, 255),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Center(
                             child: Text(
                               months[index],
                               style: TextStyle(
-                                color: selectedMonthIndex == index ? Colors.white : Colors.black,
+                                color: selectedMonthIndex == index ? const Color.fromARGB(255, 255, 255, 255) : Colors.black,
                               ),
                             ),
                           ),
@@ -201,7 +202,7 @@ class _CalendarViewState extends State<CalendarView> {
                           padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                           margin: EdgeInsets.symmetric(horizontal: 4),
                           decoration: BoxDecoration(
-                            color: selectedDay == days[index] ? Colors.blue : Colors.grey[200],
+                            color: selectedDay == days[index] ? Colors.blue : const Color.fromARGB(255, 255, 255, 255),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Center(
