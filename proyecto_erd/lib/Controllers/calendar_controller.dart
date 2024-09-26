@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CalendarView extends StatefulWidget {
-  final String username;
+  // final String username;
 
-  CalendarView({required this.username});
+  // CalendarView({required this.username});
 
   @override
   _CalendarViewState createState() => _CalendarViewState();
@@ -98,12 +98,12 @@ class _CalendarViewState extends State<CalendarView> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           // Texto de bienvenida
-          Text(
-            'Bienvenido, ${widget.username}!',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 20),
+          // Text(
+          //   'Bienvenido, ${widget.username}!',
+          //   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          //   textAlign: TextAlign.center,
+          // ),
+          // SizedBox(height: 20),
 
           // Fila para los meses con flechas
           Row(
