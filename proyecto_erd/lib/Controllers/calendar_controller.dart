@@ -108,16 +108,16 @@ class _CalendarViewState extends State<CalendarView> {
           // Fila para los meses con flechas
           Row(
             children: [
-              IconButton(
-                icon: Icon(Icons.arrow_back),
-                iconSize: 16, // Tamaño del icono más pequeño
-                padding: EdgeInsets.all(4),
-                constraints: BoxConstraints(
-                  minWidth: 30, // Ancho mínimo del botón
-                  minHeight: 24,
-                ),
-                onPressed: () => _scrollMonths(false),
-              ),
+              // IconButton(
+              //   icon: Icon(Icons.arrow_back),
+              //   iconSize: 16, // Tamaño del icono más pequeño
+              //   padding: EdgeInsets.all(4),
+              //   constraints: BoxConstraints(
+              //     minWidth: 30, // Ancho mínimo del botón
+              //     minHeight: 24,
+              //   ),
+              //   onPressed: () => _scrollMonths(false),
+              // ),
               Expanded(
                 child: Container(
                   height: 50,
@@ -154,16 +154,16 @@ class _CalendarViewState extends State<CalendarView> {
                 ),
               ),
 
-              IconButton(
-                icon: Icon(Icons.arrow_forward),
-                iconSize: 16, // Tamaño del icono más pequeño
-                padding: EdgeInsets.all(4), // Reducción del padding para hacerlo más pequeño
-                constraints: BoxConstraints(
-                  minWidth: 30, // Ancho mínimo del botón
-                  minHeight: 24, // Altura mínima del botón
-                ),
-                onPressed: () => _scrollMonths(true),
-              ),
+              // IconButton(
+              //   icon: Icon(Icons.arrow_forward),
+              //   iconSize: 16, // Tamaño del icono más pequeño
+              //   padding: EdgeInsets.all(4), // Reducción del padding para hacerlo más pequeño
+              //   constraints: BoxConstraints(
+              //     minWidth: 30, // Ancho mínimo del botón
+              //     minHeight: 24, // Altura mínima del botón
+              //   ),
+              //   onPressed: () => _scrollMonths(true),
+              // ),
 
             ],
           ),
@@ -173,16 +173,16 @@ class _CalendarViewState extends State<CalendarView> {
           // Fila para los días con flechas
           Row(
             children: [
-              IconButton(
-                icon: Icon(Icons.arrow_back),
-                iconSize: 16, // Tamaño del icono más pequeño
-                padding: EdgeInsets.all(4),
-                constraints: BoxConstraints(
-                  minWidth: 30, // Ancho mínimo del botón
-                  minHeight: 24,
-                ),
-                onPressed: () => _scrollDays(false),
-              ),
+              // IconButton(
+              //   icon: Icon(Icons.arrow_back),
+              //   iconSize: 16, // Tamaño del icono más pequeño
+              //   padding: EdgeInsets.all(4),
+              //   constraints: BoxConstraints(
+              //     minWidth: 30, // Ancho mínimo del botón
+              //     minHeight: 24,
+              //   ),
+              //   onPressed: () => _scrollDays(false),
+              // ),
               Expanded(
                 child: Container(
                   height: 60,
@@ -230,11 +230,11 @@ class _CalendarViewState extends State<CalendarView> {
                   ),
                 ),
               ),
-              IconButton(
-                icon: Icon(Icons.arrow_forward),
-                iconSize: 16,
-                onPressed: () => _scrollDays(true),
-              ),
+              // IconButton(
+              //   icon: Icon(Icons.arrow_forward),
+              //   iconSize: 16,
+              //   onPressed: () => _scrollDays(true),
+              // ),
             ],
           ),
         ],
