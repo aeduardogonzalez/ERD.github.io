@@ -4,10 +4,10 @@ import 'package:proyecto_erd/Controllers/check_controller.dart';
 import 'package:proyecto_erd/Controllers/calendar_controller.dart';
 
 
-class PrincipalPage extends StatelessWidget {
+class DashboardPage extends StatelessWidget {
   final String username;
 
-  PrincipalPage({required this.username});
+  DashboardPage({required this.username});
 
   @override
   Widget build(BuildContext context) {

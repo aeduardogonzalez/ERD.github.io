@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => PrincipalPage(username: username),
+          builder: (context) => DashboardPage(username: username),
         ),
       );
     } else {
