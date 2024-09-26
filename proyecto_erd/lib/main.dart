@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto_erd/pages/gestionPrecios_page.dart';
+import 'package:proyecto_erd/pages/gestionUsuarios_page.dart';
 import 'package:proyecto_erd/pages/login_page.dart';
 
 void main() {
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      home: GestionUsuariosPage(),
     );
   }
 }
