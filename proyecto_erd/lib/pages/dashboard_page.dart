@@ -1,51 +1,65 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:proyecto_erd/Controllers/check_controller.dart';
+import 'package:proyecto_erd/Controllers/calendar_controller.dart';
+
 
 class DashboardPage extends StatelessWidget {
-  final String username; // Se pasará el username del usuario que inició sesión
+  final String username;
 
-  DashboardPage({required this.username}); // Constructor
+  DashboardPage({required this.username});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Dashboard'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.logout),
-            onPressed: () {
-              // Lógica para cerrar sesión y regresar a la página de inicio de sesión
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
+    return ChangeNotifierProvider(
+      create: (context) => CheckController(), // Provee el controlador
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('ERP Siesa Enterprise'),
+          actions: [
+             IconButton(
+              icon: Icon(Icons.logout),
+              onPressed: () {
+                Navigator.of(context).pop(); // Lógica para cerrar sesión
+              },
+             ),
+          ],
+          automaticallyImplyLeading: false, // Quitar la flecha de regresar
+        ),
+        body: 
+        Column(
+          children: [
+            // Texto de bienvenida
             Text(
               'Bienvenido, $username!',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                // Puedes agregar funcionalidades o navegar a otras páginas
-                print('Botón 1 presionado');
-              },
-              child: Text('Opción 1'),
+             // Aquí se integra CalendarView
+            SizedBox(
+              height: 150, // Ajusta este valor según sea necesario
+              child: CalendarView(),
             ),
-            SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () {
-                // Otra funcionalidad
-                print('Botón 2 presionado');
-              },
-              child: Text('Opción 2'),
+
+            // Checklist
+            Expanded(
+              child: Consumer<CheckController>(
+                builder: (context, checkController, child) {
+                  return ListView.builder(
+                    itemCount: checkController.tasks.length,
+                    itemBuilder: (context, index) {
+                      return CheckboxListTile(
+                        title: Text(checkController.tasks[index]["title"]),
+                        value: checkController.tasks[index]["isChecked"],
+                        onChanged: (value) {
+                          checkController.toggleTask(index, value);
+                        },
+                      );
+                    },
+                  );
+                },
+              ),
             ),
           ],
         ),
