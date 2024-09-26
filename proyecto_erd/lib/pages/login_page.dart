@@ -98,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xAA0920EA), // Color de fondo personalizado
                 
-                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12), // Espacio dentro del botón
+                padding: EdgeInsets.symmetric(horizontal: 35, vertical: 24), // Espacio dentro del botón
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50), // Bordes redondeados opcionales
                 ),
