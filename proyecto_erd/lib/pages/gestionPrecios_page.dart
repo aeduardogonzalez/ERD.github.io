@@ -21,7 +21,7 @@ class _GestionPreciosPage extends State<GestionPreciosPage>{
       ),
       body: Container(
         color: Color(0xFFDCE9FD),
-        padding: const EdgeInsets.all(50.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
             SizedBox(height: 50.0),
