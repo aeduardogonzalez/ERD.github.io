@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:proyecto_erd/Controllers/check_controller.dart';
 import 'package:proyecto_erd/Controllers/calendar_controller.dart';
 
-
 class DashboardPage extends StatelessWidget {
   final String username;
 
@@ -11,23 +10,26 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => CheckController(), // Provee el controlador
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => CheckController()), // Provee el controlador del checklist
+      ],
       child: Scaffold(
         appBar: AppBar(
           title: Text('ERP Siesa Enterprise'),
+          backgroundColor: Color(0xFFDCE9FD),
           actions: [
-             IconButton(
+            IconButton(
               icon: Icon(Icons.logout),
               onPressed: () {
                 Navigator.of(context).pop(); // Lógica para cerrar sesión
               },
-             ),
+            ),
           ],
           automaticallyImplyLeading: false, // Quitar la flecha de regresar
         ),
-        body: 
-        Column(
+        backgroundColor: Color(0xFFDCE9FD),
+        body: Column(
           children: [
             // Texto de bienvenida
             Text(
