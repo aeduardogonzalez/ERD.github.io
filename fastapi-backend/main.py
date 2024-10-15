@@ -1,18 +1,43 @@
-import os
+from datetime import datetime
 from fastapi import FastAPI, HTTPException
 import json
 
 app = FastAPI()
 
-try:
-    if os.path.exists("user.json"):
-        with open("user.json", "r") as file:
-            users = json.load(file)
-    else:
-        raise FileNotFoundError("El archivo 'user.json' no existe.")
-except json.JSONDecodeError:
-    raise HTTPException(status_code=500, detail="Error al procesar el archivo JSON.")
+with open("user.json", "r") as file:
+    users = json.load(file)
 
+with open("fechas.json", "r") as file:
+    fechas = json.load(file)
+
+@app.get("/fechas")
+def profiles():
+    return fechas
+
+@app.get("/fechas-years/{year}")
+def fechasYears(year: int):
+    years = []
+    for fecha in fechas:
+        # Se convierte la cadena de texto fecha por un objeto datatime
+        fecha_id = datetime.strptime(fecha["f053_id"], "%Y-%m-%dT%H:%M:%S")
+        
+        # Filtro por año
+        if fecha_id.year == year:
+            years.append(fecha)
+    return years
+    
+@app.get("/fechas-mes/{mes}")
+def fechasMonths(mes: int):
+    months = []
+    for fecha in fechas:
+        # Se convierte la cadena de texto fecha por un objeto datatime
+        fecha_id = datetime.strptime(fecha["f053_id"], "%Y-%m-%dT%H:%M:%S")
+        
+        # Filtro por mes
+        if fecha_id.month == mes:
+            months.append(fecha)
+    return months   
+    
 @app.get("/users")
 def profiles():
     return users
