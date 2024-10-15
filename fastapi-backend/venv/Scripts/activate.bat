@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=G:\Mi unidad\Ingeniería de Sistemas\Sexto Semestre\Programación Móvil\Proyecto\fastapi-backend\venv
+set VIRTUAL_ENV=C:\Users\Andresito\Documents\Proyectos_Flutter\Proyecto_ERP\fastapi-backend\venv
 
 if not defined PROMPT set PROMPT=$P$G
 
