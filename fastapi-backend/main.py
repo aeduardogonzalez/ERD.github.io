@@ -24,29 +24,17 @@ with open("fechas.json", "r") as file:
 def profiles():
     return fechas
 
-@app.get("/fechas-years/{year}/{mes}")
-def fechasYears(year: int):
-    years = []
+@app.get("/filtro-fechas/{mes}/{year}")
+def fechasYears(year: int, mes: int):
+    lista_fecha = []
     for fecha in fechas:
         # Se convierte la cadena de texto fecha por un objeto datatime
         fecha_id = datetime.strptime(fecha["f053_id"], "%Y-%m-%dT%H:%M:%S")
         
         # Filtro por año
-        if fecha_id.year == year:
-            years.append(fecha)
-    return years
-    
-@app.get("/fechas-mes/{mes}")
-def fechasMonths(mes: int):
-    months = []
-    for fecha in fechas:
-        # Se convierte la cadena de texto fecha por un objeto datatime
-        fecha_id = datetime.strptime(fecha["f053_id"], "%Y-%m-%dT%H:%M:%S")
-        
-        # Filtro por mes
-        if fecha_id.month == mes:
-            months.append(fecha)
-    return months   
+        if fecha_id.month == mes and fecha_id.year == year:
+            lista_fecha.append(fecha)
+    return lista_fecha 
     
 @app.get("/users")
 def profiles():

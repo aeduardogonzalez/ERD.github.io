@@ -57,6 +57,7 @@ class _ResetearUsuarioPageState extends State<ResetearUsuarioPage> {
                   if (username.isNotEmpty) {
                     // Llamar a la función resetUser cuando se presiona el botón
                     resetUser(username);
+                    _usernameController.clear();
                   } else {
                     // Mostrar un mensaje si el campo está vacío
                     final snackBar = SnackBar(content: Text('Por favor ingrese un nombre de usuario.'));
