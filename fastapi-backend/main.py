@@ -1,8 +1,18 @@
 from datetime import datetime
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import json
 
 app = FastAPI()
+
+# Configurar orígenes permitidos
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Puedes especificar dominios en lugar de "*"
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 with open("user.json", "r") as file:
     users = json.load(file)
@@ -14,7 +24,7 @@ with open("fechas.json", "r") as file:
 def profiles():
     return fechas
 
-@app.get("/fechas-years/{year}")
+@app.get("/fechas-years/{year}/{mes}")
 def fechasYears(year: int):
     years = []
     for fecha in fechas:
@@ -57,3 +67,15 @@ def profilesDisabled():
         if user['status'] == "Disabled":
             disabled.append(user)
     return disabled
+
+@app.put("/reset-user/{username}")
+def  resetUser(username: str):
+    for user in users:
+        if user['username'] == username:
+            user['status'] = "Enabled"
+            user['fullname'] = "user"
+            
+    with open('users.json', 'w') as f:
+        json.dump(users, f, indent=4)
+        
+    return {"message": f"El usuario {username} ha sido restablecido correctamente."}
